@@ -3,6 +3,7 @@ package com.omega4.testmod10.block;
 import com.omega4.testmod10.Testmod10;
 import com.omega4.testmod10.block.custom.IndustrialLamp;
 import com.omega4.testmod10.block.custom.RefinedFurnaceBlock;
+import com.omega4.testmod10.sound.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -16,7 +17,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class ModBlocks {
 
-    public static final Block STEEL_BLOCK = registerBlock("steel_block", new Block(AbstractBlock.Settings.create().strength(4f).requiresTool().sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+    public static final Block STEEL_BLOCK = registerBlock("steel_block", new Block(AbstractBlock.Settings.create().strength(4f).requiresTool().sounds(ModSounds.STEEL_BLOCK_SOUNDS))); //custom sound group
     public static final Block STEEL_ORE_BLOCK = registerBlock("steel_ore_block", new ExperienceDroppingBlock(UniformIntProvider.create(2,5),AbstractBlock.Settings.create().strength(2f).requiresTool().sounds(BlockSoundGroup.ANCIENT_DEBRIS)));
 
     public static final Block REFINED_FURNACE_BLOCK = registerBlock("refined_furnace_block", new RefinedFurnaceBlock(AbstractBlock.Settings.create().strength(8f).requiresTool().sounds(BlockSoundGroup.NETHERITE).luminance(state -> state.get(RefinedFurnaceBlock.CLICKED) ? 12 : 0)));

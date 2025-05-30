@@ -1,0 +1,38 @@
+{
+  "chisel_use": {
+    "subtitle": "sounds.testmod10.chisel_use",
+    "sounds": [
+      "testmod10:chisel_use"
+    ]
+  },
+  "steel_block_break": {
+    "subtitle": "sounds.testmod10.steel_block_break",
+    "sounds": [
+      "testmod10:steel_block_break"
+    ]
+  },
+  "steel_block_step": {
+    "subtitle": "sounds.testmod10.steel_block_step",
+    "sounds": [
+      "testmod10:steel_block_step"
+    ]
+  },
+  "steel_block_place": {
+    "subtitle": "sounds.testmod10.steel_block_place",
+    "sounds": [
+      "testmod10:steel_block_place"
+    ]
+  },
+  "steel_block_hit": {
+    "subtitle": "sounds.testmod10.steel_block_hit",
+    "sounds": [
+      "testmod10:steel_block_hit"
+    ]
+  },
+  "steel_block_fall": {
+    "subtitle": "sounds.testmod10.steel_block_fall",
+    "sounds": [
+      "testmod10:steel_block_fall"
+    ]
+  }
+}

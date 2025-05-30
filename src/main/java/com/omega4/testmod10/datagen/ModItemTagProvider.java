@@ -35,5 +35,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE)
                 .add(ModItems.STEEL_HELMET)
                 .add(ModItems.STEEL_BOOTS);
+        getOrCreateTagBuilder(ItemTags.BOW_ENCHANTABLE).add(ModItems.STEEL_BOW);
     }
 }
+
+//pass fail, success

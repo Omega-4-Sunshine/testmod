@@ -5,6 +5,7 @@ import com.omega4.testmod10.component.ModDataComponentTypes;
 import com.omega4.testmod10.item.ModItems;
 import com.omega4.testmod10.item.custom.HealBeam2Item;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 
 public class ModModelPredicates {
@@ -13,5 +14,21 @@ public class ModModelPredicates {
         ModelPredicateProviderRegistry.register(ModItems.HEAL_BEAM_2, Identifier.of(Testmod10.MOD_ID, "overcharged"), (stack, world, entity, seed) -> {
             if(stack.get(ModDataComponentTypes.CHARGE) >= HealBeam2Item.getChargeMaxUsable()) {return 1f;} return 0f;
         });
+
+        registerCustomBow(ModItems.STEEL_BOW);
+    }
+    private static void registerCustomBow(Item item) {
+        ModelPredicateProviderRegistry.register(item, Identifier.ofVanilla("pull"), (stack, world, entity, seed) -> {
+            if (entity == null) {
+                return 0.0F;
+            } else {
+                return entity.getActiveItem() != stack ? 0.0F : (float)(stack.getMaxUseTime(entity) - entity.getItemUseTimeLeft()) / 20.0F;
+            }
+        });
+        ModelPredicateProviderRegistry.register(
+                item,
+                Identifier.ofVanilla("pulling"),
+                (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F
+        );
     }
 }

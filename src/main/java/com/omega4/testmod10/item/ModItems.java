@@ -46,6 +46,8 @@ public class ModItems {
     public static final Item STEEL_HELMET = registerItem("steel_helmet", new SteelArmorItem(ModArmorMaterials.STEEL_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item STEEL_BOOTS = registerItem("steel_boots", new ArmorItem(ModArmorMaterials.STEEL_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
 
+    public static final Item STEEL_BOW = registerItem("steel_bow", new BowItem(new Item.Settings().maxDamage(2000)));
+
 
 
     private static Item registerItem(String name, Item item) {

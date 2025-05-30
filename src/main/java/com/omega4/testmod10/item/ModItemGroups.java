@@ -35,6 +35,7 @@ public class ModItemGroups {
                 entries.add(ModItems.HAMMER);
                 entries.add(ModItems.STEEL_HELMET);
                 entries.add(ModItems.STEEL_BOOTS);
+                entries.add(ModItems.STEEL_BOW);
             })
             .build());
 
