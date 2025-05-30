@@ -29,7 +29,6 @@ public class SteelArmorItem extends ArmorItem {
             if(armorItem.getItem() == ModItems.STEEL_BOOTS || armorItem.getItem() == ModItems.STEEL_HELMET) {
                 x++;
             }
-
         }
         if(x == 2) {return true;}
         return false;

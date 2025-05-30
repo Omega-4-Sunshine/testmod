@@ -43,11 +43,11 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_PLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.COAL_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROASTED_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAL_BEAM, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HEAL_BEAM_2, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.HEAL_BEAM_2, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HAMMER, Models.HANDHELD);//for 3d -> tools, etc.

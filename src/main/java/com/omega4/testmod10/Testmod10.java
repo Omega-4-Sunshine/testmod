@@ -5,6 +5,7 @@ import com.omega4.testmod10.component.ModDataComponentTypes;
 import com.omega4.testmod10.item.ModItemGroups;
 import com.omega4.testmod10.item.ModItems;
 import com.omega4.testmod10.util.HammerUsageEvent;
+import com.omega4.testmod10.util.ModModelPredicates;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
@@ -28,6 +29,7 @@ public class Testmod10 implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModDataComponentTypes.registerDataComponentTypes();
+		ModModelPredicates.registerModelPredicates();
 
 		FuelRegistry.INSTANCE.add(ModItems.COAL_DUST, 2000); //für fuels muss man ins Register Fuel neuen Eintrag hinzufügen
 

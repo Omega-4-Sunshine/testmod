@@ -29,11 +29,19 @@ public class HealBeam2Item extends Item {
         super(settings);
     }
 
-    private int chargeMax = 150, chargeMaxUsable = 100, chargeIncrease = 1, chargeDecrease = 2, state = 0, beamDistance = 1000;
+    private int chargeMax = 150;
+    private static int chargeMaxUsable = 100;
+    private int chargeIncrease = 1;
+    private int chargeDecrease = 2;
+    private int state = 0;
+    private int beamDistance = 1000;
     double beamMaxAngle = 0.7, beamSteps = 0.001;
     private LivingEntity entitySelected;
 
     //------------------------------------------------------------------------------------------------------------------
+    public static int getChargeMaxUsable() {
+        return chargeMaxUsable;
+    }
     public EntityHitResult raycastLivingEntities(PlayerEntity player, double maxDistance) {
         Vec3d playerPos = player.getCameraPosVec(1.0f);
         Vec3d playerLook = player.getRotationVec(1.0f);

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "testmod10:item/heal_beam_2"
+    "layer0": "testmod10:item/chisel_used"
   }
 }

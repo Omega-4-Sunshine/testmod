@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-29T22:17:23.5957966	testmod10/Model Definitions
+// 1.21.1	2025-05-30T12:27:12.7718028	testmod10/Model Definitions
 33f00548a4872a6525fc2e9b0a0b6d58cd73959f assets\testmod10\models\item\copper_plate.json
 723e404d2eeacb0cf260d2fe22b230b50bd722c2 assets\testmod10\models\block\steel_door_top_right_open.json
 3f9e91100577e6c6b0478c2c7c84b6d78e89adb2 assets\testmod10\models\block\steel_door_top_left_open.json
@@ -18,7 +18,6 @@ ae58742784fe0ce50ec44768e340cd64999e7a92 assets\testmod10\models\item\heal_beam.
 993458de9a26f0807a345541b351f6d80e1e84f4 assets\testmod10\models\item\steel_helmet_redstone_trim.json
 f11cef63556026674a5ecae14fc137122c86b838 assets\testmod10\models\item\steel_helmet_diamond_trim.json
 f757aaadde2ccd03f7d7b3724d6da962571dc7f5 assets\testmod10\blockstates\industrial_lamp.json
-20966d7384620c4fbea7e2b03769ac9ebe62efbd assets\testmod10\models\item\chisel.json
 d184ca1706c1e42771b3a072ec7e784aece79995 assets\testmod10\models\item\steel_helmet.json
 3c7c3865b44dd1b4ea77cd3d99208b83e5aa1c4e assets\testmod10\models\item\steel_boots_copper_trim.json
 c21e4d00bc3d68e3a4349c63bdcd9216b2350cf2 assets\testmod10\models\item\steel_boots_lapis_trim.json
@@ -28,8 +27,8 @@ a519b425ab8b1f2169eb9851b15989142eab4a29 assets\testmod10\models\block\steel_doo
 22a6d083235470487de5f801a060dbfafa08790d assets\testmod10\blockstates\steel_block.json
 16ac5d23f4a1a08298927ec300a00625dc8778fe assets\testmod10\models\item\hammer.json
 af7756f1ebd6e3f806a28a55db8b7bdc5f4800d9 assets\testmod10\models\block\steel_door_bottom_right.json
-5269ee4c11b1e9b7347f9310a84f3f74827881ab assets\testmod10\models\block\steel_ore_block.json
 009e8b1d67f7460023f410b3ed33f294d527b585 assets\testmod10\models\block\steel_block.json
+5269ee4c11b1e9b7347f9310a84f3f74827881ab assets\testmod10\models\block\steel_ore_block.json
 d1399797cbf94e0d01974d19a521a0c93552e2d8 assets\testmod10\models\item\steel_helmet_iron_trim.json
 1c2c96806a1bb57f106b252103c47c78ac77af6e assets\testmod10\blockstates\steel_slab.json
 2bd60a46619c9883fd4d6d502e3eaadf98b726c7 assets\testmod10\models\block\steel_slab.json
@@ -50,7 +49,6 @@ e5054b872790fb578368a416953de245ef877df9 assets\testmod10\models\item\steel_helm
 6b5a7a30fc3f3d4c869b12427898add5768b1fd5 assets\testmod10\models\item\coal_dust.json
 09fd3bc13b23613552d3d956a3e3f6712189d03b assets\testmod10\models\item\steel_block.json
 d1382f3f2548941fdae295b1bf9dc9332c97c3ff assets\testmod10\models\item\steel_boots_redstone_trim.json
-8bc51a0a7a35d55cef01bd5a6272a38d3631a129 assets\testmod10\models\item\heal_beam_2.json
 21c4d449e0c1343889aa601f7184aefac16deabc assets\testmod10\models\block\steel_door_bottom_left.json
 dd5d7232df872c99b1f0b45e5ab11f5530b6f8a9 assets\testmod10\models\item\steel_door.json
 4a54ac1e9b00b6be5df6db5d166ffc99c2da39fe assets\testmod10\models\item\steel_boots_quartz_trim.json
