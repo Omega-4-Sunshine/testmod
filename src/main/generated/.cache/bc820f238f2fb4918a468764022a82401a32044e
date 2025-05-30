@@ -1,0 +1,6 @@
+// 1.21.1	2025-05-29T22:17:23.5926591	testmod10/Block Loot Tables
+91ef2df53617e5d8a768e6cc769d1fa1a9f7bf59 data\testmod10\loot_table\blocks\steel_slab.json
+75b33ac870086e231448a5975a00aea89205fade data\testmod10\loot_table\blocks\steel_block.json
+0c9454058088f56bb2b0d2cf59b0e9fbbedd500b data\testmod10\loot_table\blocks\steel_door.json
+7ea9cba6223e18ad9ca0b74ecb224ae3e8deed2f data\testmod10\loot_table\blocks\refined_furnace_block.json
+dd3a384a667be1301b4c4e3e9c7d776cd486e689 data\testmod10\loot_table\blocks\steel_ore_block.json

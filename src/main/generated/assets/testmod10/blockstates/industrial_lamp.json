@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "testmod10:block/industrial_lamp"
+    },
+    "clicked=true": {
+      "model": "testmod10:block/industrial_lamp_on"
+    }
+  }
+}

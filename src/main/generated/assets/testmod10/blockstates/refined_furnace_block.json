@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "testmod10:block/refined_furnace_block"
+    },
+    "clicked=true": {
+      "model": "testmod10:block/refined_furnace_block_active"
+    }
+  }
+}

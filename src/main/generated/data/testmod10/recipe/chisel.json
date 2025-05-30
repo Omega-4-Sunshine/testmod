@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "testmod10:steel_ingot"
+    },
+    "W": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "WSS",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "testmod10:chisel"
+  }
+}

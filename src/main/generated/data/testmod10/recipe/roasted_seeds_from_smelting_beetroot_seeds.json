@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 20,
+  "experience": 2.0,
+  "group": "roated_seeds",
+  "ingredient": {
+    "item": "minecraft:beetroot_seeds"
+  },
+  "result": {
+    "id": "testmod10:roasted_seeds"
+  }
+}

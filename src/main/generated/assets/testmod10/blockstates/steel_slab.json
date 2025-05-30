@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "testmod10:block/steel_slab"
+    },
+    "type=double": {
+      "model": "testmod10:block/steel_block"
+    },
+    "type=top": {
+      "model": "testmod10:block/steel_slab_top"
+    }
+  }
+}
