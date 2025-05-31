@@ -16,6 +16,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -91,7 +92,7 @@ public class HealBeam2Item extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if(world.isClient) {return TypedActionResult.consume(user.getStackInHand(hand));};
+        if(world.isClient) {return TypedActionResult.fail(user.getStackInHand(hand));};
         state = 1; //set active
         user.setCurrentHand(hand);
         return TypedActionResult.consume(user.getStackInHand(hand)); //needed for consume action and usageTick, stoppedUsing, etc.
@@ -124,11 +125,9 @@ public class HealBeam2Item extends Item {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
         if(world.isClient) {return;}
-        if(selected) {entity.sendMessage(Text.of("CH:" + stack.get(ModDataComponentTypes.CHARGE)));}
 
         if(selected && (state < 2)){
             stack.set(ModDataComponentTypes.CHARGE, Math.clamp(stack.get(ModDataComponentTypes.CHARGE) - 2, 0, chargeMax));
-            ((PlayerEntity) entity).sendMessage(Text.of("Charge: " + stack.get(ModDataComponentTypes.CHARGE)), true);
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
@@ -144,8 +143,14 @@ public class HealBeam2Item extends Item {
         super.onStoppedUsing(stack, world, user, remainingUseTicks);
     }
 
+
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return 10000;
+    }
+
+    @Override // to stop anim
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BOW; //works changes general anim, but does not stop anim when changing stack
     }
 }

@@ -31,7 +31,6 @@ public class Testmod10 implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModDataComponentTypes.registerDataComponentTypes();
-		ModModelPredicates.registerModelPredicates();
 
 		FuelRegistry.INSTANCE.add(ModItems.COAL_DUST, 2000); //für fuels muss man ins Register Fuel neuen Eintrag hinzufügen
 
