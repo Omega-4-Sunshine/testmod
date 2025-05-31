@@ -13,7 +13,9 @@ import java.util.function.UnaryOperator;
 public class ModDataComponentTypes {
 
     public static final ComponentType<BlockPos> COORDINATES = register("coordinates", builder -> builder.codec(BlockPos.CODEC));
-    public static final ComponentType<Integer> CHARGE = register("charge", builder -> builder.codec(Codec.INT));
+    //public static final ComponentType<Integer> CHARGE = register("charge", builder -> builder.codec(Codec.INT).p);
+    public static final ComponentType<Integer> CHARGE =
+            register("charge", builder -> builder.codec(Codec.INT));
     public static final ComponentType<Boolean> INITIALIZED = register("initialized", builder -> builder.codec(Codec.BOOL)); //no longer needed
     //always need codec, do not do anything new
 

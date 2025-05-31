@@ -9,6 +9,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -151,6 +153,6 @@ public class HealBeam2Item extends Item {
 
     @Override // to stop anim
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BOW; //works changes general anim, but does not stop anim when changing stack
+        return UseAction.NONE; //works changes general anim, but does not stop anim when changing stack
     }
 }

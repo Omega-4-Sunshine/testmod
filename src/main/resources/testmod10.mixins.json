@@ -3,7 +3,8 @@
 	"package": "com.omega4.testmod10.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"HeldItemRendererMixin"
 	],
 	"client": [
 		"AbstractClientPlayerEntityMixin",
