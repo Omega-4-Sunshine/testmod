@@ -2,6 +2,7 @@ package com.omega4.testmod10.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.omega4.testmod10.Testmod10;
+import com.omega4.testmod10.component.ModDataComponentTypes;
 import com.omega4.testmod10.item.ModItems;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -33,7 +34,9 @@ public abstract class ItemRendererMixin {
     )
     public BakedModel renderItem(BakedModel bakedModel, @Local(argsOnly = true) ItemStack stack, @Local(argsOnly = true) ModelTransformationMode renderMode) {
         if (stack.getItem() == ModItems.HEAL_BEAM_2 && (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND || renderMode == ModelTransformationMode.FIXED)) {
-            return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(Identifier.of(Testmod10.MOD_ID, "heal_beam_2")));
+ //basi
+                return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(Identifier.of(Testmod10.MOD_ID, "heal_beam_2")));
+
         }
 
         return bakedModel;

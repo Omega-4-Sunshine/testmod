@@ -11,12 +11,13 @@ import net.minecraft.util.Identifier;
 public class ModModelPredicates {
     public static void registerModelPredicates() { //to change textures -> make custom json file
         ModelPredicateProviderRegistry.register(ModItems.CHISEL, Identifier.of(Testmod10.MOD_ID,"used"), (stack, world, entity, seed) -> stack.get(ModDataComponentTypes.COORDINATES) == null ? 0f : 1f);
-        ModelPredicateProviderRegistry.register(ModItems.HEAL_BEAM_2, Identifier.of(Testmod10.MOD_ID, "overcharged"), (stack, world, entity, seed) -> {
-            if(stack.get(ModDataComponentTypes.CHARGE) >= HealBeam2Item.getChargeMaxUsable()) {return 1f;} return 0f;
-        });
 
         registerCustomBow(ModItems.STEEL_BOW);
     }
+
+
+
+
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, Identifier.ofVanilla("pull"), (stack, world, entity, seed) -> {
             if (entity == null) {

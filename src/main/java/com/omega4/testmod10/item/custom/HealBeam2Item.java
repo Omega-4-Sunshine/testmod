@@ -38,7 +38,7 @@ public class HealBeam2Item extends Item {
     private int chargeDecrease = 2;
     private int state = 0;
     private int beamDistance = 1000;
-    double beamMaxAngle = 0.7, beamSteps = 0.001;
+    double beamMaxAngle = 0.7, beamSteps = 0.02;
     private LivingEntity entitySelected;
 
     //------------------------------------------------------------------------------------------------------------------
@@ -70,25 +70,41 @@ public class HealBeam2Item extends Item {
     }
     public void drawBeam(Entity entitySelected, PlayerEntity player, ServerWorld world) {
         double x = 0;
-        Vec3d playerCenterVec = new Vec3d(player.getX(), player.getY() + player.getHeight()/2,player.getZ());
+        Vec3d playerCenterVec = new Vec3d(player.getX(), (player.getY() + player.getHeight()/2),player.getZ());
         Vec3d entityCenterVec = new Vec3d(entitySelected.getX(), entitySelected.getY() + entitySelected.getHeight()/2, entitySelected.getZ());
+        Vec3d currentLookVec, currentPlayerEntityVec;
         Vec3d playerEntityVec;
         Vec3d currentSpawnVec;
-        Vec3d currentLookVec, currentPlayerEntityVec;
-        playerEntityVec = entityCenterVec.subtract(playerCenterVec);
+        Vec3d look = player.getRotationVec(1f);
+        Vec3d rightLook = new Vec3d(-look.z, 0, look.x).normalize();
+
+        Vec3d healbeamTip = playerCenterVec.add(player.getRotationVec(1f).multiply(1.2)).add(0,0.18,0).add(rightLook.multiply(0.38));
+
+;
+        playerEntityVec = entityCenterVec.subtract(healbeamTip);
         Vec3d playerLookVec = player.getRotationVec(1).multiply(playerEntityVec.length());
+
+
+
         //maybe random intervalls and more sparcly  + + random - o.5
         while (x <= 1) {
 
-            currentPlayerEntityVec = playerCenterVec.add(playerEntityVec.multiply(x));
-            currentLookVec = playerCenterVec.add(playerLookVec.multiply(x));
+            currentPlayerEntityVec = healbeamTip.add(playerEntityVec.multiply(x));
+            currentLookVec = healbeamTip.add(playerLookVec.multiply(x));
             currentSpawnVec = currentPlayerEntityVec.add((currentLookVec.subtract(currentPlayerEntityVec)).multiply(1 - x));
 
-            world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0,0,0,0);
+            double random = Math.random();
+            if(random > 0.7) {
+                world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0.1,0.1,0.1,0);
+            } else if (random > 0.4){
+                world.spawnParticles(ParticleTypes.BUBBLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+            } else {
+                world.spawnParticles(ParticleTypes.DOLPHIN, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+            }
             x = x + beamSteps;
         }
 
-        world.spawnParticles(ParticleTypes.CLOUD, entityCenterVec.getX() + Math.random(), entityCenterVec.getY() + Math.random(), entityCenterVec.getZ()+ Math.random(), 1,0,0,0,0);
+        world.spawnParticles(ParticleTypes.GLOW, entityCenterVec.getX() + (Math.random()-0.5), entityCenterVec.getY() + (Math.random()-0.5), entityCenterVec.getZ()+ (Math.random() -0.5), 1,0,0,0,0);
     };
     //------------------------------------------------------------------------------------------------------------------
 
@@ -104,6 +120,7 @@ public class HealBeam2Item extends Item {
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
 
+        if(((PlayerEntity) user).getInventory().getStack(40).getItem() == ModItems.HEAL_BEAM_2 && ((PlayerEntity) user).getStackInHand(Hand.MAIN_HAND).getItem() != ModItems.HEAL_BEAM_2) {this.onStoppedUsing(stack,world,user,0);}
         if(world.isClient) {return;}
         if((state < 2) && (stack.get(ModDataComponentTypes.CHARGE) <= chargeMaxUsable)) {
             EntityHitResult entityHitResult = raycastLivingEntities(((PlayerEntity) user), beamDistance);

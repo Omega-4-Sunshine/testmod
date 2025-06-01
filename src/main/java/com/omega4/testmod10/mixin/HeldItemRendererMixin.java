@@ -36,14 +36,19 @@ public abstract class HeldItemRendererMixin {
     private void renderFirstPersonItem(
             AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci
     ) {
-        if(item.getItem() == ModItems.HEAL_BEAM_2) {
+        if(item.getItem() == ModItems.HEAL_BEAM_2 && (player.getStackInHand(Hand.MAIN_HAND).getItem() == item.getItem()) && (player.getStackInHand(Hand.OFF_HAND).getItem() != player.getStackInHand(Hand.MAIN_HAND).getItem())) {
+
+            boolean bl = hand == Hand.MAIN_HAND;
+            Arm arm = bl ? player.getMainArm() : player.getMainArm().getOpposite();
+            boolean bl2 = arm == Arm.RIGHT;
+
 
             //vanilla matrix transforms for basic item -----------------------------------------------------------------
             matrices.push();
             float n = -0.4F * MathHelper.sin(MathHelper.sqrt(swingProgress) * (float) Math.PI);
             float mxx = 0.2F * MathHelper.sin(MathHelper.sqrt(swingProgress) * (float) (Math.PI * 2));
             float fxxx = -0.2F * MathHelper.sin(swingProgress * (float) Math.PI);
-            int o = true ? 1 : -1;
+            int o = bl2 ? 1 : -1;
             matrices.translate(o * n, mxx, fxxx);
             matrices.translate(1 * 0.56F, -0.52F + (equipProgress/5) * -0.6F, -0.72F); //the single 0 stands for the equip progress
             int i = 1;
@@ -58,8 +63,8 @@ public abstract class HeldItemRendererMixin {
             ((HeldItemRenderer)(Object)this).renderItem(
                     player,
                     item,
-                    true ? ModelTransformationMode.FIRST_PERSON_RIGHT_HAND : ModelTransformationMode.FIRST_PERSON_LEFT_HAND,
-                    !true,
+                    bl2 ? ModelTransformationMode.FIRST_PERSON_RIGHT_HAND : ModelTransformationMode.FIRST_PERSON_LEFT_HAND,
+                    !bl2,
                     matrices,
                     vertexConsumers,
                     light

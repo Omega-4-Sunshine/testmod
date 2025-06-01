@@ -2,13 +2,5 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "testmod10:item/heal_beam_2"
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "testmod10:overcharged": 1
-      },
-      "model": "testmod10:item/heal_beam_2_overcharged"
-    }
-  ]
+  }
 }

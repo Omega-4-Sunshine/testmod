@@ -35,8 +35,6 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier RefinedFurnaceOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.REFINED_FURNACE_BLOCK, "_active", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.REFINED_FURNACE_BLOCK)
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(RefinedFurnaceBlock.CLICKED, RefinedFurnaceOnIdentifier, RefinedFurnaceOffIdentifier)));
-
-
     }
 
     @Override
