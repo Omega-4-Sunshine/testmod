@@ -5,6 +5,18 @@
       "testmod10:chisel_use"
     ]
   },
+  "heal_beam_charging": {
+    "subtitle": "sounds.testmod10.heal_beam_charging",
+    "sounds": [
+    "testmod10:heal_beam_charging"
+    ]
+  },
+  "heal_beam_overheat": {
+    "subtitle": "sounds.testmod10.heal_beam_overheat",
+    "sounds": [
+      "testmod10:heal_beam_overheat"
+    ]
+  },
   "steel_block_break": {
     "subtitle": "sounds.testmod10.steel_block_break",
     "sounds": [

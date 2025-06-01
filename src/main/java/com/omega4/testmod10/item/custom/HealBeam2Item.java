@@ -3,9 +3,11 @@ package com.omega4.testmod10.item.custom;
 import com.omega4.testmod10.component.ModDataComponentTypes;
 import com.omega4.testmod10.item.ModItems;
 import com.omega4.testmod10.particle.ModParticles;
+import com.omega4.testmod10.sound.ModSounds;
 import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.Item;
@@ -33,13 +35,13 @@ public class HealBeam2Item extends Item {
         super(settings);
     }
 
-    private int chargeMax = 150;
-    private static int chargeMaxUsable = 100;
+    private int chargeMax = 160;
+    private static int chargeMaxUsable = 120;
     private int chargeIncrease = 1;
     private int chargeDecrease = 2;
     private int state = 0;
     private int beamDistance = 1000;
-    double beamMaxAngle = 0.7, beamSteps = 0.02;
+    double beamMaxAngle = -2, beamSteps = 0.02;
     private LivingEntity entitySelected;
 
     //------------------------------------------------------------------------------------------------------------------
@@ -67,11 +69,14 @@ public class HealBeam2Item extends Item {
     }
     public void overheat(ItemStack stack, World world, PlayerEntity player){
         stack.set(ModDataComponentTypes.CHARGE, Math.clamp(stack.get(ModDataComponentTypes.CHARGE) + 50, 0, chargeMax));
-        world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.BLOCKS, 1, 1);
+        world.playSound(null, player.getBlockPos(), ModSounds.HEAL_BEAM_OVERHEAT, SoundCategory.BLOCKS, 1, 1);
+    }
+    public void succedBeamAction(boolean killed, World world, PlayerEntity player) {
+        world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.BLOCKS, 1, 2f);
     }
     public void drawBeam(Entity entitySelected, PlayerEntity player, ServerWorld world) {
         double x = 0;
-        Vec3d playerCenterVec = new Vec3d(player.getX(), (player.getY() + player.getHeight()/2),player.getZ());
+        Vec3d playerCenterVec = new Vec3d(player.getX(), (player.getY() + player.getHeight()/2) + 0.17,player.getZ());
         Vec3d entityCenterVec = new Vec3d(entitySelected.getX(), entitySelected.getY() + entitySelected.getHeight()/2, entitySelected.getZ());
         Vec3d currentLookVec, currentPlayerEntityVec;
         Vec3d playerEntityVec;
@@ -79,7 +84,7 @@ public class HealBeam2Item extends Item {
         Vec3d look = player.getRotationVec(1f);
         Vec3d rightLook = new Vec3d(-look.z, 0, look.x).normalize();
 
-        Vec3d healbeamTip = playerCenterVec.add(player.getRotationVec(1f).multiply(1.2)).add(0,0.18,0).add(rightLook.multiply(0.38));
+        Vec3d healbeamTip = playerCenterVec.add(player.getRotationVec(1f).multiply(1.1)).add(0,0,0).add(rightLook.multiply(0.38));
 
 ;
         playerEntityVec = entityCenterVec.subtract(healbeamTip);
@@ -87,23 +92,42 @@ public class HealBeam2Item extends Item {
 
 
 
-        //maybe random intervalls and more sparcly  + + random - o.5
         while (x <= 1) {
 
             currentPlayerEntityVec = healbeamTip.add(playerEntityVec.multiply(x));
             currentLookVec = healbeamTip.add(playerLookVec.multiply(x));
             currentSpawnVec = currentPlayerEntityVec.add((currentLookVec.subtract(currentPlayerEntityVec)).multiply(1 - x));
-
-            world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
-
             double random = Math.random();
-            if(random > 0.7) {
-                //world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0.1,0.1,0.1,0);
-            } else if (random > 0.4){
-                //world.spawnParticles(ParticleTypes.BUBBLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
-            } else {
-                //world.spawnParticles(ParticleTypes.DOLPHIN, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
 
+            //gradient density (lame way)
+            if(x <= 0.1) {
+                if(Math.random() < 0.8) {
+                    x = x + beamSteps;
+                    continue;
+                }
+            } else if(x <= 0.2) {
+                if(Math.random() < 0.6) {
+                    x = x + beamSteps;
+                    continue;
+                }
+            } else if (x <= 0.3) {
+                if(Math.random() < 0.4) {
+                    x = x + beamSteps;
+                    continue;
+                }
+            }
+
+            if(random > 0.75) {
+                world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_1, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
+
+            } else if (random > 0.45){
+                world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_2, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
+                //world.spawnParticles(ParticleTypes.BUBBLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+            } else if (random > 0.25){
+                world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_3, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
+                //world.spawnParticles(ParticleTypes.DOLPHIN, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+            } else {
+                world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0.1,0.1,0.1,0);
             }
             x = x + beamSteps;
         }
@@ -135,10 +159,13 @@ public class HealBeam2Item extends Item {
         }
         int currentCharge = stack.get(ModDataComponentTypes.CHARGE);
         if(currentCharge == chargeMaxUsable) {overheat(stack, world, ((PlayerEntity) user));}
-        if((entitySelected == null) || !checkValidHealAngle(entitySelected, ((PlayerEntity) user)) || (stack.getItem() != ModItems.HEAL_BEAM_2) || (currentCharge >= chargeMaxUsable)) {this.onStoppedUsing(stack, world, user, 0); return;}
+        if((entitySelected == null) || entitySelected.getHealth() <= 0 || !checkValidHealAngle(entitySelected, ((PlayerEntity) user)) || (stack.getItem() != ModItems.HEAL_BEAM_2) || (currentCharge >= chargeMaxUsable)) {this.onStoppedUsing(stack, world, user, 0); return;}
         stack.set(ModDataComponentTypes.CHARGE, Math.clamp(currentCharge + 1,0,chargeMaxUsable));
-        world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_AMBIENT, SoundCategory.BLOCKS, 1.0f, map(currentCharge, 0, chargeMax,0.5f,2f));
-        entitySelected.setHealth(entitySelected.getHealth() - 1.0f);
+        //world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_AMBIENT, SoundCategory.BLOCKS, 1.0f, map(currentCharge, 0, chargeMax,0.5f,2f));
+        world.playSound(null, user.getBlockPos(), ModSounds.HEAL_BEAM_CHARGE, SoundCategory.BLOCKS, 1.1f, map(currentCharge, 0, chargeMax,0.5f,2.5f));
+        //entitySelected.setHealth(entitySelected.getHealth() - 1.0f); //main functionality
+        DamageSources sources = world.getDamageSources();
+        entitySelected.damage(sources.freeze(), 1f);
         drawBeam(entitySelected, ((PlayerEntity) user), ((ServerWorld) world));
 
         //draw line, play sound
@@ -159,9 +186,15 @@ public class HealBeam2Item extends Item {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
 
+
+        
         state = 0;
+        if(entitySelected == null) {return;}
+        if(stack.get(ModDataComponentTypes.CHARGE) < chargeMaxUsable) {
+            succedBeamAction(true, world, ((PlayerEntity) user) );
+        }
         entitySelected = null;
-        world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1, 1);
+        //world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.BLOCKS, 1, 1);
         //play break sound
         super.onStoppedUsing(stack, world, user, remainingUseTicks);
     }

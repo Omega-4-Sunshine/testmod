@@ -10,6 +10,8 @@ import net.minecraft.util.Identifier;
 public class ModSounds {
     //sound assets need to be .ogg + mono -- also Sound event needs to be connected to sound file via sounds.json
     public static SoundEvent CHISEL_USE = registerSoundEvent("chisel_use");
+    public static SoundEvent HEAL_BEAM_CHARGE = registerSoundEvent("heal_beam_charging");
+    public static SoundEvent HEAL_BEAM_OVERHEAT = registerSoundEvent("heal_beam_overheat");
 
     private static SoundEvent STEEL_BlOCK_BREAK = registerSoundEvent("steel_block_break");
     private static SoundEvent STEEL_BlOCK_STEP = registerSoundEvent("steel_block_step");

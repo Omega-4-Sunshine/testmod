@@ -5,8 +5,8 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.SimpleParticleType;
 import org.jetbrains.annotations.Nullable;
 
-public class HealBeamParticle extends SpriteBillboardParticle {
-    public HealBeamParticle(ClientWorld clientWorld, double x, double y, double z, SpriteProvider spriteProvider, double xSpeed, double ySpeed, double zSpeed) {
+public class HealBeamParticle3 extends SpriteBillboardParticle {
+    public HealBeamParticle3(ClientWorld clientWorld, double x, double y, double z, SpriteProvider spriteProvider, double xSpeed, double ySpeed, double zSpeed) {
         super(clientWorld, x, y, z, xSpeed, ySpeed, zSpeed);
 
         this.setSpriteForAge(spriteProvider);
@@ -14,9 +14,8 @@ public class HealBeamParticle extends SpriteBillboardParticle {
         this.velocityX = 0;
         this.velocityY = 0;
         this.velocityZ = 0;
-        this.scale = 0.05f;
+        this.scale = 0.07f;
         this.alpha = 1f;
-        this.angle = ((float) Math.random());
     }
 
     @Override
@@ -34,7 +33,7 @@ public class HealBeamParticle extends SpriteBillboardParticle {
         @Nullable
         @Override
         public Particle createParticle(SimpleParticleType parameters, ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
-            return new HealBeamParticle(world, x,y,z,this.spriteProvider,velocityX,velocityY,velocityZ);
+            return new HealBeamParticle3(world, x,y,z,this.spriteProvider,velocityX,velocityY,velocityZ);
         }
     }
 }

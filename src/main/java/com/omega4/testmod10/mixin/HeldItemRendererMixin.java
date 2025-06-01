@@ -50,7 +50,7 @@ public abstract class HeldItemRendererMixin {
             float fxxx = -0.2F * MathHelper.sin(swingProgress * (float) Math.PI);
             int o = bl2 ? 1 : -1;
             matrices.translate(o * n, mxx, fxxx);
-            matrices.translate(1 * 0.56F, -0.52F + (equipProgress/5) * -0.6F, -0.72F); //the single 0 stands for the equip progress
+            matrices.translate(1 * 0.56F, -0.52F + (0) * -0.6F, -0.72F); //the single 0 stands for the equip progress
             int i = 1;
             float f = MathHelper.sin(swingProgress * swingProgress * (float) Math.PI);
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(i * (45.0F + f * -20.0F)));
