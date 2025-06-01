@@ -2,6 +2,7 @@ package com.omega4.testmod10.item.custom;
 
 import com.omega4.testmod10.component.ModDataComponentTypes;
 import com.omega4.testmod10.item.ModItems;
+import com.omega4.testmod10.particle.ModParticles;
 import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -93,13 +94,16 @@ public class HealBeam2Item extends Item {
             currentLookVec = healbeamTip.add(playerLookVec.multiply(x));
             currentSpawnVec = currentPlayerEntityVec.add((currentLookVec.subtract(currentPlayerEntityVec)).multiply(1 - x));
 
+            world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
+
             double random = Math.random();
             if(random > 0.7) {
-                world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0.1,0.1,0.1,0);
+                //world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0.1,0.1,0.1,0);
             } else if (random > 0.4){
-                world.spawnParticles(ParticleTypes.BUBBLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+                //world.spawnParticles(ParticleTypes.BUBBLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
             } else {
-                world.spawnParticles(ParticleTypes.DOLPHIN, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+                //world.spawnParticles(ParticleTypes.DOLPHIN, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+
             }
             x = x + beamSteps;
         }
