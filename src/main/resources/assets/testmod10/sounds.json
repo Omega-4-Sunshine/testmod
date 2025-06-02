@@ -17,6 +17,18 @@
       "testmod10:heal_beam_overheat"
     ]
   },
+  "heal_beam_shot": {
+    "subtitle": "sounds.testmod10.heal_beam_shot",
+    "sounds": [
+      "testmod10:heal_beam_shot"
+    ]
+  },
+  "heal_beam_stop": {
+    "subtitle": "sounds.testmod10.heal_beam_stop",
+    "sounds": [
+      "testmod10:heal_beam_stop"
+    ]
+  },
   "steel_block_break": {
     "subtitle": "sounds.testmod10.steel_block_break",
     "sounds": [

@@ -12,6 +12,8 @@ public class ModSounds {
     public static SoundEvent CHISEL_USE = registerSoundEvent("chisel_use");
     public static SoundEvent HEAL_BEAM_CHARGE = registerSoundEvent("heal_beam_charging");
     public static SoundEvent HEAL_BEAM_OVERHEAT = registerSoundEvent("heal_beam_overheat");
+    public static SoundEvent HEAL_BEAM_SHOT = registerSoundEvent("heal_beam_shot");
+    public static SoundEvent Heal_beam_STOP = registerSoundEvent("heal_beam_stop");
 
     private static SoundEvent STEEL_BlOCK_BREAK = registerSoundEvent("steel_block_break");
     private static SoundEvent STEEL_BlOCK_STEP = registerSoundEvent("steel_block_step");

@@ -69,10 +69,13 @@ public class HealBeam2Item extends Item {
     }
     public void overheat(ItemStack stack, World world, PlayerEntity player){
         stack.set(ModDataComponentTypes.CHARGE, Math.clamp(stack.get(ModDataComponentTypes.CHARGE) + 50, 0, chargeMax));
+        world.playSound(null, player.getBlockPos(), ModSounds.Heal_beam_STOP, SoundCategory.BLOCKS, 1f, 0.7f);
         world.playSound(null, player.getBlockPos(), ModSounds.HEAL_BEAM_OVERHEAT, SoundCategory.BLOCKS, 1, 1);
+
     }
     public void succedBeamAction(boolean killed, World world, PlayerEntity player) {
-        world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, SoundCategory.BLOCKS, 1, 2f);
+        world.playSound(null, player.getBlockPos(), ModSounds.HEAL_BEAM_SHOT, SoundCategory.BLOCKS, 2, 1f);
+        world.playSound(null, player.getBlockPos(), ModSounds.Heal_beam_STOP, SoundCategory.BLOCKS, 1, 1.2f);
     }
     public void drawBeam(Entity entitySelected, PlayerEntity player, ServerWorld world) {
         double x = 0;
@@ -100,17 +103,17 @@ public class HealBeam2Item extends Item {
             double random = Math.random();
 
             //gradient density (lame way)
-            if(x <= 0.1) {
+            if(x <= 0.1 || x >= 0.9) {
                 if(Math.random() < 0.8) {
                     x = x + beamSteps;
                     continue;
                 }
-            } else if(x <= 0.2) {
+            } else if(x <= 0.2 || x >= 0.8) {
                 if(Math.random() < 0.6) {
                     x = x + beamSteps;
                     continue;
                 }
-            } else if (x <= 0.3) {
+            } else if (x <= 0.3 || x >= 0.7) {
                 if(Math.random() < 0.4) {
                     x = x + beamSteps;
                     continue;
@@ -120,19 +123,26 @@ public class HealBeam2Item extends Item {
             if(random > 0.75) {
                 world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_1, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
 
+                world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_1, entityCenterVec.getX(), entityCenterVec.getY(), entityCenterVec.getZ(), 1, 0.3,0.3,0.3,0);
+
             } else if (random > 0.45){
                 world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_2, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
-                //world.spawnParticles(ParticleTypes.BUBBLE, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
+
             } else if (random > 0.25){
                 world.spawnParticles(ModParticles.HEAL_BEAM_PARTICLE_3, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0,0,0,0);
-                //world.spawnParticles(ParticleTypes.DOLPHIN, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1, 0.1,0.1,0.1,0);
             } else {
                 world.spawnParticles(ParticleTypes.BUBBLE_POP, currentSpawnVec.getX(), currentSpawnVec.getY(), currentSpawnVec.getZ(), 1,0.1,0.1,0.1,0);
+
+                world.spawnParticles(ParticleTypes.BUBBLE_POP, entityCenterVec.getX(), entityCenterVec.getY(), entityCenterVec.getZ(), 1, 0.3,0.3,0.3,0);
+
             }
+
             x = x + beamSteps;
         }
 
         world.spawnParticles(ParticleTypes.GLOW, entityCenterVec.getX() + (Math.random()-0.5), entityCenterVec.getY() + (Math.random()-0.5), entityCenterVec.getZ()+ (Math.random() -0.5), 1,0,0,0,0);
+        world.spawnParticles(ParticleTypes.BUBBLE, entityCenterVec.getX(), entityCenterVec.getY(), entityCenterVec.getZ(), 1, 0.3,0.3,0.3,0);
+        world.spawnParticles(ParticleTypes.DOLPHIN, entityCenterVec.getX(), entityCenterVec.getY(), entityCenterVec.getZ(), 1, 0.3,0.3,0.3,0);
     };
     //------------------------------------------------------------------------------------------------------------------
 
@@ -162,7 +172,7 @@ public class HealBeam2Item extends Item {
         if((entitySelected == null) || entitySelected.getHealth() <= 0 || !checkValidHealAngle(entitySelected, ((PlayerEntity) user)) || (stack.getItem() != ModItems.HEAL_BEAM_2) || (currentCharge >= chargeMaxUsable)) {this.onStoppedUsing(stack, world, user, 0); return;}
         stack.set(ModDataComponentTypes.CHARGE, Math.clamp(currentCharge + 1,0,chargeMaxUsable));
         //world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_AMBIENT, SoundCategory.BLOCKS, 1.0f, map(currentCharge, 0, chargeMax,0.5f,2f));
-        world.playSound(null, user.getBlockPos(), ModSounds.HEAL_BEAM_CHARGE, SoundCategory.BLOCKS, 1.1f, map(currentCharge, 0, chargeMax,0.5f,2.5f));
+        world.playSound(null, user.getBlockPos(), ModSounds.HEAL_BEAM_CHARGE, SoundCategory.BLOCKS, 1.8f, map(currentCharge, 0, chargeMax,0.5f,2.5f));
         //entitySelected.setHealth(entitySelected.getHealth() - 1.0f); //main functionality
         DamageSources sources = world.getDamageSources();
         entitySelected.damage(sources.freeze(), 1f);
