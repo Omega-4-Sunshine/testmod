@@ -22,6 +22,8 @@
 
   "itemgroup.tutorialmod.advanced_construction_items": "Adcanced Construction",
 
+  "enchantment.testmod10.lightning_strike": "Lightning",
+
 
   "tooltip.testmod10.refined_furnace.tooltip": "Transforms Items dropped on top of it!",
   "tooltip.testmod10.steel_ingot.shiftDown": "An advanced Alloy used to craft complex maschinery",
