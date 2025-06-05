@@ -25,9 +25,7 @@ public record LightningStrikeEnchantmentEffect() implements EnchantmentEntityEff
             EntityType.LIGHTNING_BOLT.spawn(world, user.getBlockPos(), SpawnReason.TRIGGERED);
             //context.owner().setHealth(0.5f);
         }
-
-
-        }
+    }
     
 
 

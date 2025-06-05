@@ -1,0 +1,30 @@
+{
+  "anvil_cost": 5,
+  "description": {
+    "translate": "enchantment.testmod10.inversion"
+  },
+  "effects": {
+    "minecraft:tick": [
+      {
+        "effect": {
+          "type": "minecraft:inversion"
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 25,
+    "per_level_above_first": 9
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 7
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "primary_items": "#testmod10:enchantable/inversible",
+  "supported_items": "#testmod10:enchantable/inversible",
+  "weight": 2
+}

@@ -25,6 +25,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.COAL);
         getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .add(ModItems.CHISEL);
+        //getOrCreateTagBuilder(ModTags.Items.INVERSIBLE).add(ModItems.HEAL_BEAM_2);
 
         //tag swords, pickaxe, etc -> for correct enchantment
 
@@ -36,6 +37,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STEEL_HELMET)
                 .add(ModItems.STEEL_BOOTS);
         getOrCreateTagBuilder(ItemTags.BOW_ENCHANTABLE).add(ModItems.STEEL_BOW);
+        getOrCreateTagBuilder(ItemTags.EQUIPPABLE_ENCHANTABLE).add(ModItems.HEAL_BEAM_2); //idealy should include inversion but does not
     }
 }
 

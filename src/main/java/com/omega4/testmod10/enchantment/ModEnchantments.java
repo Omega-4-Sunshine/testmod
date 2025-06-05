@@ -1,7 +1,9 @@
 package com.omega4.testmod10.enchantment;
 
 import com.omega4.testmod10.Testmod10;
+import com.omega4.testmod10.enchantment.custom.InversionEnchantmentEffect;
 import com.omega4.testmod10.enchantment.custom.LightningStrikeEnchantmentEffect;
+import com.omega4.testmod10.util.ModTags;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
@@ -17,6 +19,7 @@ public class ModEnchantments {
 
     //this is for datagen -> json file for enchantment
     public static final RegistryKey<Enchantment> LIGHTNING_STRIKE = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Testmod10.MOD_ID, "lightning_strike"));
+    public static final RegistryKey<Enchantment> INVERSION = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Testmod10.MOD_ID, "inversion"));
 
     public static void bootstrap(Registerable<Enchantment> registerable) {
         var enchantments = registerable.getRegistryLookup(RegistryKeys.ENCHANTMENT);
@@ -31,9 +34,24 @@ public class ModEnchantments {
                 Enchantment.leveledCost(25,9),
                 5,
                 AttributeModifierSlot.MAINHAND))
-                .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE_SET)) //in set with other damage -> not smite + scharpness for example
+                .exclusiveSet(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE_SET))
+                //in set with other damage -> not smite + scharpness for example
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM, new LightningStrikeEnchantmentEffect()));
+
+//        register(registerable, INVERSION, Enchantment.builder(Enchantment.definition(//what enchantment for
+//                        items.getOrThrow(ModTags.Items.INVERSIBLE), //what mainly for
+//                        100,
+//                        2,
+//                        Enchantment.leveledCost(5,7),
+//                        Enchantment.leveledCost(25,9),
+//                        5,
+//                        AttributeModifierSlot.MAINHAND))
+//                //in set with other damage -> not smite + scharpness for example
+//                .addEffect(EnchantmentEffectComponentTypes.TICK, new InversionEnchantmentEffect()
+//
+//        ));
+
     }
 
 

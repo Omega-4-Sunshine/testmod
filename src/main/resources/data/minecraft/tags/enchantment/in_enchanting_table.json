@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "testmod10:lightning_strike"
+    "testmod10:lightning_strike",
+    "testmod10:inversion"
   ]
 }
