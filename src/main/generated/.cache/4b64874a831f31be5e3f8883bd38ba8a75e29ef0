@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-03T12:32:56.0718308	testmod10/Tags for minecraft:block
+// 1.21.1	2025-10-03T23:31:27.903707	testmod10/Tags for minecraft:block
 e27dbc7f4b949ecc52b8efb5989128cdefc562ff data\minecraft\tags\block\beacon_base_blocks.json
 76d99ae40a4231fb53c7619e33e8f6055a79689b data\testmod10\tags\block\needs_steel_tool.json
 adb6a863de6468d24e41b1cc074f9cdf606dacab data\minecraft\tags\block\needs_diamond_tool.json

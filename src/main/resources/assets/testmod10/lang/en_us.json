@@ -6,7 +6,7 @@
   "item.testmod10.coal_dust": "Coal Dust",
   "item.testmod10.industrial_lamp": "Industrial Lamp",
   "item.testmod10.heal_beam": "Heal Beam",
-  "item.testmod10.heal_beam_2": "Heal Beam 2",
+  "item.testmod10.heal_beam_2": "Heal Beam",
   "item.testmod10.steel_shovel": "Steel Shovel",
   "item.testmod10.hammer": "Hammer",
   "item.testmod10.steel_helmet": "Steel Helmet",
@@ -20,9 +20,11 @@
   "block.testmod10.steel_door": "Steel Door",
   "block.testmod10.industrial_lamp":"Industrial Lamp",
 
-  "itemgroup.tutorialmod.advanced_construction_items": "Adcanced Construction",
+  "itemgroup.tutorialmod.advanced_construction_items": "Advanced Construction",
+  "itemgroup.tutorialmod.healing_items": "Omegas Healing",
 
   "enchantment.testmod10.lightning_strike": "Lightning",
+  "enchantment.testmod10.inversion": "Destructive Charge",
 
 
   "tooltip.testmod10.refined_furnace.tooltip": "Transforms Items dropped on top of it!",

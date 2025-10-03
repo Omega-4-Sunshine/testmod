@@ -15,10 +15,16 @@ import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.ClampedEntityAttribute;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,8 +33,23 @@ public class Testmod10 implements ModInitializer {
 	public static final String MOD_ID = "testmod10";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+public class ModAttributes {
+
+}
+
+	//Trying to add a custom attribute to player entity ?? (copy from EntityAttributes soruce file)
+//	private static RegistryEntry<EntityAttribute> register(String id, EntityAttribute attribute) {
+//		return Registry.registerReference(Registries.ATTRIBUTE, Identifier.of(Testmod10.MOD_ID,id), attribute);
+//	}
+//
+//	public static final RegistryEntry<EntityAttribute> BEAM_STRENGTH = register(
+//			"beam.strength", new ClampedEntityAttribute("attribute.name.generic.armor", 0.0, 0.0, 30.0).setTracked(true)
+//	);
+
 	@Override
 	public void onInitialize() {
+
+	//	LivingEntity.createLivingAttributes().add(BEAM_STRENGTH,10);
 
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
@@ -45,5 +66,7 @@ public class Testmod10 implements ModInitializer {
 			return ActionResult.PASS;
 				}
 				);
+
+
 	}
 }

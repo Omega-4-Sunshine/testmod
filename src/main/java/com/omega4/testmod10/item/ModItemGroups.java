@@ -3,18 +3,27 @@ package com.omega4.testmod10.item;
 import com.ibm.icu.impl.Row;
 import com.omega4.testmod10.Testmod10;
 import com.omega4.testmod10.block.ModBlocks;
+import com.omega4.testmod10.enchantment.ModEnchantmentEffects;
+import com.omega4.testmod10.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 
 public class ModItemGroups {
+
+    public static final ItemGroup HEALING_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(Testmod10.MOD_ID,"healing_items"), FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.HEAL_BEAM_2))
+            .displayName(Text.translatable("itemgroup.tutorialmod.healing_items"))
+            .entries((displayContext, entries) -> {
+                entries.add(ModItems.HEAL_BEAM_2);
+            })
+            .build());
 
     public static final ItemGroup ADVANCED_CONSTRUCTION_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(Testmod10.MOD_ID, "advanced_construction_items"), FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.STEEL_INGOT))
             .displayName(Text.translatable("itemgroup.tutorialmod.advanced_construction_items"))

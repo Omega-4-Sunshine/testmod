@@ -47,6 +47,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', ModItems.STEEL_INGOT)
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                 .offerTo(recipeExporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.HEAL_BEAM_2)
+                .pattern(" SG")
+                .pattern("SNS")
+                .pattern("WS ")
+                        .input('N', Items.NAUTILUS_SHELL)
+                                .input('S',ModItems.STEEL_INGOT)
+                                        .input('G', Items.GOAT_HORN).input('W', Items.STICK).criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT)) // NEEDED!!!
+                .offerTo(recipeExporter);
 
         createDoorRecipe(ModBlocks.STEEL_DOOR, Ingredient.ofItems(ModItems.STEEL_INGOT))
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))

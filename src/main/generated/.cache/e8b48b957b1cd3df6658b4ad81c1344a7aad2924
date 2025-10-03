@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-03T12:32:56.0733746	testmod10/Model Definitions
+// 1.21.1	2025-10-03T23:31:27.9052224	testmod10/Model Definitions
 33f00548a4872a6525fc2e9b0a0b6d58cd73959f assets\testmod10\models\item\copper_plate.json
 723e404d2eeacb0cf260d2fe22b230b50bd722c2 assets\testmod10\models\block\steel_door_top_right_open.json
 3f9e91100577e6c6b0478c2c7c84b6d78e89adb2 assets\testmod10\models\block\steel_door_top_left_open.json
@@ -27,8 +27,8 @@ a519b425ab8b1f2169eb9851b15989142eab4a29 assets\testmod10\models\block\steel_doo
 22a6d083235470487de5f801a060dbfafa08790d assets\testmod10\blockstates\steel_block.json
 16ac5d23f4a1a08298927ec300a00625dc8778fe assets\testmod10\models\item\hammer.json
 af7756f1ebd6e3f806a28a55db8b7bdc5f4800d9 assets\testmod10\models\block\steel_door_bottom_right.json
-009e8b1d67f7460023f410b3ed33f294d527b585 assets\testmod10\models\block\steel_block.json
 5269ee4c11b1e9b7347f9310a84f3f74827881ab assets\testmod10\models\block\steel_ore_block.json
+009e8b1d67f7460023f410b3ed33f294d527b585 assets\testmod10\models\block\steel_block.json
 d1399797cbf94e0d01974d19a521a0c93552e2d8 assets\testmod10\models\item\steel_helmet_iron_trim.json
 1c2c96806a1bb57f106b252103c47c78ac77af6e assets\testmod10\blockstates\steel_slab.json
 2bd60a46619c9883fd4d6d502e3eaadf98b726c7 assets\testmod10\models\block\steel_slab.json

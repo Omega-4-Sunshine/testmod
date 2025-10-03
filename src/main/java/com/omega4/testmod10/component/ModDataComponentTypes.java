@@ -17,6 +17,8 @@ public class ModDataComponentTypes {
     public static final ComponentType<Integer> CHARGE =
             register("charge", builder -> builder.codec(Codec.INT));
     public static final ComponentType<Boolean> INITIALIZED = register("initialized", builder -> builder.codec(Codec.BOOL)); //no longer needed
+
+    public static final ComponentType<Integer> OUTPUT = register("output", builder -> builder.codec(Codec.INT));
     //always need codec, do not do anything new
 
     //helperMethodToAdd

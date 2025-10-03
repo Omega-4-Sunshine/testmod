@@ -7,8 +7,13 @@ import com.omega4.testmod10.util.ModTags;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelBasedValue;
+import net.minecraft.enchantment.effect.AttributeEnchantmentEffect;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.registry.Registerable;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.EnchantmentTags;
@@ -39,18 +44,21 @@ public class ModEnchantments {
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM, new LightningStrikeEnchantmentEffect()));
 
-//        register(registerable, INVERSION, Enchantment.builder(Enchantment.definition(//what enchantment for
-//                        items.getOrThrow(ModTags.Items.INVERSIBLE), //what mainly for
-//                        100,
-//                        2,
-//                        Enchantment.leveledCost(5,7),
-//                        Enchantment.leveledCost(25,9),
-//                        5,
-//                        AttributeModifierSlot.MAINHAND))
-//                //in set with other damage -> not smite + scharpness for example
-//                .addEffect(EnchantmentEffectComponentTypes.TICK, new InversionEnchantmentEffect()
-//
-//        ));
+        register(registerable, INVERSION, Enchantment.builder(Enchantment.definition(//what enchantment for
+                        items.getOrThrow(ModTags.Items.INVERSIBLE),
+                        items.getOrThrow(ModTags.Items.INVERSIBLE),//what mainly for
+                        5,
+                        5,
+                        Enchantment.leveledCost(5,7),
+                        Enchantment.leveledCost(25,9),
+                        5,
+                        AttributeModifierSlot.MAINHAND))
+                    //.addEffect(EnchantmentEffectComponentTypes.TICK, new InversionEnchantmentEffect()));
+                        .addEffect(EnchantmentEffectComponentTypes.ATTRIBUTES, new AttributeEnchantmentEffect(Identifier.of("beam.strength"), //Identifier has no importance
+                                EntityAttributes.PLAYER_SNEAKING_SPEED,
+                                EnchantmentLevelBasedValue.linear(100F),
+                                EntityAttributeModifier.Operation.ADD_VALUE)));
+                //in set with other damage -> not smite + scharpness for example
 
     }
 

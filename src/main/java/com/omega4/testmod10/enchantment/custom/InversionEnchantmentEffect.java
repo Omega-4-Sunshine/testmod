@@ -1,6 +1,7 @@
 package com.omega4.testmod10.enchantment.custom;
 
 import com.mojang.serialization.MapCodec;
+import com.omega4.testmod10.component.ModDataComponentTypes;
 import net.minecraft.enchantment.EnchantmentEffectContext;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
 import net.minecraft.enchantment.effect.EnchantmentValueEffect;
@@ -19,11 +20,17 @@ public record InversionEnchantmentEffect() implements EnchantmentEntityEffect {
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        EntityType.LIGHTNING_BOLT.spawn(world, user.getBlockPos(), SpawnReason.TRIGGERED);
-        if(user instanceof PlayerEntity){
-            user.sendMessage(Text.of("TestUSER = Player"));
-        }
 
+        user.sendMessage(Text.of("TestAdd1"));
+        context.stack().set(ModDataComponentTypes.OUTPUT, 5*level);
+
+    }
+
+    @Override
+    public void remove(EnchantmentEffectContext context, Entity user, Vec3d pos, int level) {
+        user.sendMessage(Text.of("TestRemove!"));
+        context.stack().set(ModDataComponentTypes.OUTPUT, -1);
+        EnchantmentEntityEffect.super.remove(context, user, pos, level);
     }
 
     @Override
