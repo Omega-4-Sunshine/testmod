@@ -53,12 +53,13 @@ public class ModEnchantments {
                         Enchantment.leveledCost(25,9),
                         5,
                         AttributeModifierSlot.MAINHAND))
-                    //.addEffect(EnchantmentEffectComponentTypes.TICK, new InversionEnchantmentEffect()));
-                        .addEffect(EnchantmentEffectComponentTypes.ATTRIBUTES, new AttributeEnchantmentEffect(Identifier.of("beam.strength"), //Identifier has no importance
-                                EntityAttributes.PLAYER_SNEAKING_SPEED,
-                                EnchantmentLevelBasedValue.linear(100F),
-                                EntityAttributeModifier.Operation.ADD_VALUE)));
-                //in set with other damage -> not smite + scharpness for example
+                        .addEffect(EnchantmentEffectComponentTypes.TICK, new InversionEnchantmentEffect()));
+
+//                .addEffect(EnchantmentEffectComponentTypes.ATTRIBUTES, new AttributeEnchantmentEffect(Identifier.of("beam.strength"), //Identifier has no importance
+//                                EntityAttributes.PLAYER_SNEAKING_SPEED,
+//                                EnchantmentLevelBasedValue.linear(100F),
+//                                EntityAttributeModifier.Operation.ADD_VALUE)));
+        //cool for changing attributes that already exist with player ()quite a few!!!
 
     }
 

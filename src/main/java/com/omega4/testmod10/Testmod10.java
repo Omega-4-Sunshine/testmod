@@ -33,9 +33,7 @@ public class Testmod10 implements ModInitializer {
 	public static final String MOD_ID = "testmod10";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-public class ModAttributes {
 
-}
 
 	//Trying to add a custom attribute to player entity ?? (copy from EntityAttributes soruce file)
 //	private static RegistryEntry<EntityAttribute> register(String id, EntityAttribute attribute) {

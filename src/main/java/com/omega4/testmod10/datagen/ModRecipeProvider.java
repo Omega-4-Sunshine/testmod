@@ -38,6 +38,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', ModItems.STEEL_INGOT)
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT)) //necessary
                 .offerTo(recipeExporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SYRINGE_ITEM)
+                .pattern("S  ")
+                .pattern("EGA")
+                .pattern("  S")
+                .input('S',ModItems.STEEL_INGOT).input('G', Items.POTION).input('E',Items.AMETHYST_SHARD).input('A', Items.GOLDEN_APPLE)
+                .criterion(hasItem(Items.GOLDEN_APPLE), conditionsFromItem(Items.GOLDEN_APPLE))
+                .offerTo(recipeExporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.STEEL_SHOVEL)
                 .pattern("S  ")

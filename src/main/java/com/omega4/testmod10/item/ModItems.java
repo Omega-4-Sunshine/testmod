@@ -39,6 +39,7 @@ public class ModItems {
     //all items are of super class
     public static final Item HEAL_BEAM = registerItem("heal_beam", new HealBeamItem(new Item.Settings().maxCount(1).component(ModDataComponentTypes.CHARGE, 0)));
     public static final Item HEAL_BEAM_2 = registerItem("heal_beam_2", new HealBeam2Item(new  Item.Settings().maxCount(1).component(ModDataComponentTypes.CHARGE, 0).component(ModDataComponentTypes.OUTPUT,-1)));//default Component value //max count for non stackable
+    public static final Item SYRINGE_ITEM = registerItem("syringe_item", new SyringeItem(new Item.Settings().maxCount(16)));
 
     public static final Item STEEL_SHOVEL = registerItem("steel_shovel", new ShovelItem(ModToolMaterials.STEEL, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterials.STEEL, - 3, 2f))));
     public static final Item HAMMER = registerItem("hammer", new HammerItem(ModToolMaterials.STEEL, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.STEEL, 7,-3.5f))));//ModToolMaterials is advanced enum

@@ -52,5 +52,7 @@ public class ModModelProvider extends FabricModelProvider {
         
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.STEEL_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.STEEL_BOOTS));
+
+        itemModelGenerator.register(ModItems.SYRINGE_ITEM, Models.GENERATED);
     }
 }

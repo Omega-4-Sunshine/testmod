@@ -1,5 +1,6 @@
-// 1.21.1	2025-10-03T23:31:27.9070533	testmod10/Recipes
+// 1.21.1	2025-10-04T23:55:25.4898251	testmod10/Recipes
 413d18f3e06e7f859721eb63858e53b02bb947ad data\testmod10\advancement\recipes\food\roasted_seeds_from_smelting_melon_seeds.json
+0d69ed6015ccd805074bad922a54bece14f68085 data\testmod10\recipe\syringe_item.json
 c068e8ea998e805fedf66aa1ed5a7a65d6e8bde0 data\testmod10\advancement\recipes\food\roasted_seeds_from_smelting_pumpkin_seeds.json
 2726ec1e3b0f14d4e5eb0d2f1b4a2f11ca0307b7 data\testmod10\advancement\recipes\misc\steel_ingot.json
 850cf7e86304eeaf76aacbc43bb6812c982388b1 data\testmod10\recipe\steel_block.json
@@ -12,6 +13,7 @@ c6c141f11d92e9eea81032bd86176e6a71823180 data\testmod10\advancement\recipes\misc
 32d1ce5a772647bd11bd79c6cf9ed6c57643bfe8 data\testmod10\recipe\roasted_seeds_from_smelting_pumpkin_seeds.json
 ec844d3d6cebba9684224e7b00375aa0252e048a data\testmod10\advancement\recipes\misc\steel_block.json
 0102e17da5a69de77d25e6d33726f84e9d4b1a24 data\testmod10\advancement\recipes\food\roasted_seeds_from_smelting_wheat_seeds.json
+49eb8676d7edcc5699e782822ccd462ee6c7fb7f data\testmod10\advancement\recipes\food\syringe_item.json
 6b672fe40f6cc035d125cbfb54d9847949a48a85 data\testmod10\recipe\roasted_seeds_from_smelting_beetroot_seeds.json
 c544308eff0a503745a17ad52bed57de78d7c9aa data\testmod10\recipe\chisel.json
 b5d321d24e9d6427e3b7ae8f70b503ed078daa4d data\testmod10\recipe\roasted_seeds_from_smelting_melon_seeds.json

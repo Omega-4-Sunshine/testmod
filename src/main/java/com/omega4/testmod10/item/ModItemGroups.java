@@ -22,6 +22,7 @@ public class ModItemGroups {
             .displayName(Text.translatable("itemgroup.tutorialmod.healing_items"))
             .entries((displayContext, entries) -> {
                 entries.add(ModItems.HEAL_BEAM_2);
+                entries.add(ModItems.SYRINGE_ITEM);
             })
             .build());
 

@@ -2,10 +2,13 @@ package com.omega4.testmod10.item.custom;
 
 import com.omega4.testmod10.Testmod10;
 import com.omega4.testmod10.component.ModDataComponentTypes;
+import com.omega4.testmod10.enchantment.ModEnchantments;
+import com.omega4.testmod10.enchantment.custom.InversionEnchantmentEffect;
 import com.omega4.testmod10.item.ModItems;
 import com.omega4.testmod10.particle.ModParticles;
 import com.omega4.testmod10.sound.ModSounds;
 import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -17,11 +20,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.EntityHitResult;
@@ -184,9 +191,12 @@ public class HealBeam2Item extends Item {
           //   entitySelected.damage(sources.freeze(), (float) (1f * Math.max(stack.get(ModDataComponentTypes.OUTPUT) * user.getAttributeValue(Testmod10.BEAM_STRENGTH), 1)));
          //}
         //entitySelected.setHealth(entitySelected.getHealth() - 1.0f); //main functionality ---------------------------- MAIN MAIN MAIN MAIN MAIN
-
-        DamageSources sources = world.getDamageSources();
-        entitySelected.damage(sources.freeze(), (float)  user.getAttributeValue(EntityAttributes.PLAYER_SNEAKING_SPEED));
+        if(stack.getEnchantments().getEnchantments().toString().contains(ModEnchantments.INVERSION.getValue().toString())) { //get level doesnt work as a funtion??????
+            DamageSources sources = world.getDamageSources();
+            entitySelected.damage(sources.freeze(), (float) (1f * Math.max(stack.get(ModDataComponentTypes.OUTPUT), 1)));
+        } else {
+            entitySelected.setHealth(Math.min(entitySelected.getMaxHealth(),entitySelected.getHealth() + 2));
+        }
 
         drawBeam(entitySelected, ((PlayerEntity) user), ((ServerWorld) world));
 
