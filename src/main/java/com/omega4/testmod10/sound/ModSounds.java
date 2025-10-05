@@ -15,6 +15,8 @@ public class ModSounds {
     public static SoundEvent HEAL_BEAM_SHOT = registerSoundEvent("heal_beam_shot");
     public static SoundEvent Heal_beam_STOP = registerSoundEvent("heal_beam_stop");
 
+    public static SoundEvent SYRINGE_USE = registerSoundEvent("syringe_use");
+
     private static SoundEvent STEEL_BlOCK_BREAK = registerSoundEvent("steel_block_break");
     private static SoundEvent STEEL_BlOCK_STEP = registerSoundEvent("steel_block_step");
     private static SoundEvent STEEL_BlOCK_PLACE = registerSoundEvent("steel_block_place");

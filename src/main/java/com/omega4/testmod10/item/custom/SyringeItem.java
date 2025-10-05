@@ -2,6 +2,7 @@ package com.omega4.testmod10.item.custom;
 
 import com.omega4.testmod10.Testmod10;
 import com.omega4.testmod10.item.ModItems;
+import com.omega4.testmod10.sound.ModSounds;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
@@ -13,6 +14,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -52,6 +54,11 @@ public class SyringeItem extends Item {
 
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+
+        if(remainingUseTicks > 49) {
+            world.playSound(user, user.getBlockPos(), ModSounds.SYRINGE_USE, SoundCategory.BLOCKS,1f,1f);
+        }
+
 
         user.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).removeModifier(Identifier.of("syringe_speed"));
         user.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).addPersistentModifier(

@@ -29,6 +29,12 @@
       "testmod10:heal_beam_stop"
     ]
   },
+  "syringe_use": {
+    "subtitle": "sounds.testmod10.syringe_use",
+    "sounds": [
+      "testmod10:syringe_use"
+    ]
+  },
   "steel_block_break": {
     "subtitle": "sounds.testmod10.steel_block_break",
     "sounds": [
